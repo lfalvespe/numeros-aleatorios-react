@@ -11,7 +11,6 @@ nav {
   justify-content: center;
   column-gap: 5px;
   font-size: .8em;
-
 }
 
 .card {
@@ -114,10 +113,11 @@ input[type=checkbox]:checked:after {
 }
 
 footer {
-  width: 50%;
-  margin: auto;
-  margin-top: 70px;
-  margin-bottom: 20px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  width: 400px;
   padding: .5em;
   background-color: #1414143b;
   border: .1em solid #ffffff17;
@@ -150,6 +150,6 @@ footer {
 
 @media screen and (max-width: 800px) {
   footer {
-    width: 95%;
+    width: 90%;
   }
 }
