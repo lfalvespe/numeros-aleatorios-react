@@ -54,7 +54,7 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <h1>Gerador de números aleatórios</h1>
+      <h1 className='page-title'>Gerador de números aleatórios</h1>
 
       <div className="card">
 

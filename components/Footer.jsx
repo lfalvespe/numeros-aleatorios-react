@@ -8,11 +8,11 @@ const Footer = () => {
 
             </p>
             <p>
-                <img id='logo-mail' src="gmail.png" alt="" width='20px' />
+                <img id='logo-mail' src="gmail.png" alt="" width='18px' />
                 &nbsp;<a href="mailto:lfalvespe@gmail.com">lfalvespe@gmail.com</a>
             </p>
             <p>
-                <img id='logo-github' src="github.png" alt="" width='20px' />
+                <img id='logo-github' src="github.png" alt="" width='19px' />
                 &nbsp;<a href="https://github.com/lfalvespe" target='_blank'>Github</a>
             </p>
             <p>&copy; 2025</p>

@@ -10,7 +10,7 @@ const Display = ({ numbers, error, message }) => {
                     ? <p className='message blink'>{message}</p>
                     : <>
                         <span id="result">
-                            {numbers.length != 0 && '[ '}
+                            {numbers.length != 0 && <span className="brackets">{'[ '}</span>}
                             {numbers.map((n, i) => (
                                 <span
                                     key={i}>
@@ -21,7 +21,7 @@ const Display = ({ numbers, error, message }) => {
                                 </span>
                             ))
                             }
-                            {numbers.length != 0 && ' ]'}
+                            {numbers.length != 0 && <span className="brackets">{' ]'}</span>}
 
                         </span>
                        

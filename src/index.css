@@ -20,8 +20,9 @@ a {
   color: #1E80EF;
   text-decoration: inherit;
 }
+
 a:hover {
-  color: #6caaf1;
+  color: rgb(228, 211, 115);  
 }
 
 body {
@@ -45,6 +46,7 @@ button {
 }
 button:hover {
   border-color: #1E80EF;
+  color: rgb(228, 211, 115);
 }
 button:focus,
 button:focus-visible {
