@@ -183,4 +183,10 @@ footer a {
   footer {
     width: 95%;
   }
+  nav a {
+    font-size: .7em;
+  }
+  .page-title {
+    font-size: 1.4em;
+  }
 }
