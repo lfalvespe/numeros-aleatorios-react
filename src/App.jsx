@@ -66,10 +66,10 @@ const App = () => {
 
       <hr />
 
-      <p>
-        * Contagem máxima 99999 <br />
-        ** Após atingir o limte máximo o contador é reiniciado <br />
-        *** Registro salvo no navegador.
+      <p className='instructions'>
+        * Gere um conjunto de números inteiros aleatórios no intervalo selecionado. <br />
+        ** Defina a quantidade de números gerados. <br />
+        ** Escolha se deseja permitir duplicatas. <br />
       </p>
 
       <Footer />
