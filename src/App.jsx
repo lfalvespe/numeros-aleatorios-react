@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import './App.css'
 
+import useReset from '../hooks/useReset'
+import useCheckConditions from '../hooks/useCheckConditions'
 import useGetRandomInt from '../hooks/useGetRandomInt'
+import useGenerateUnique from '../hooks/useGenerateUnique'
+import useGenerateDuplicated from '../hooks/useGenerateDuplicated'
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -9,9 +13,9 @@ import Footer from '../components/Footer'
 import Controls from '../components/Controls'
 import Display from '../components/Display'
 
-function App() {
+const App = () => {
 
-  const [numbers, setNumbers] = useState(([]))
+  const [numbers, setNumbers] = useState([])
 
   const [min, setMin] = useState(0)
   const [max, setMax] = useState(10)
@@ -21,68 +25,35 @@ function App() {
   const [error, setError] = useState(false)
   const [message, setMessage] = useState('')
 
+  const reset = useReset()
+  const checkConditions = useCheckConditions()
   const getRandomInt = useGetRandomInt()
+  const generateUnique = useGenerateUnique()
+  const generateduplicated = useGenerateDuplicated()
 
-
-  //functions
+  //Reset
   const handleReset = () => {
-    setMin(0)
-    setMax(10)
-    setQtd(5)
-    setNumbers([])
-    setMessage('')
+    reset(setNumbers, setError, setMessage, setMin, setMax, setQtd)
   }
 
   const handleGenerate = (duplicate) => {
 
-    let array = []
-    let n = 0
-
-    if (!max || max < min) {
-      setNumbers([])
-      setError(true)
-      setMessage('Max não pode ser menor que Min !')
-      return
-    }
-
-    if (qtd <= 0) {
-      setNumbers([])
-      setError(true)
-      setMessage('Qtd tem que ser maior que 0 !')
-      return
-    }
-
-    setError(false)
     setMessage('')
+    setError(false)
 
-    if (duplicate) {
-      for (let i = 0; i < qtd; i++) {
-        array.push(getRandomInt(min, max))
-      }
-    }
-    setNumbers(array)
+    checkConditions(min, max, qtd, duplicate, setNumbers, setError, setMessage)
 
-    if (duplicate) { return }
+    // Generate unique
+    !duplicate && generateUnique(min, max, qtd, getRandomInt, setNumbers)
 
-    if(qtd > max - min + 1){
-      setNumbers([])
-      setError(true)
-      setMessage(`Não é possível gerar ${qtd} números únicos entre ${min} e ${max}`)
-      return
-    }
-
-    while (array.length < qtd) {
-      n = getRandomInt(min, max)
-      array.indexOf(n) === -1 && array.push(n)
-    }
-    setNumbers(array)
+    //Generate duplicates
+    duplicate && generateduplicated(min, max, qtd, getRandomInt, setNumbers)
 
   }
 
   return (
     <>
       <Navbar />
-
       <h1>Gerador de números aleatórios</h1>
 
       <div className="card">
@@ -92,6 +63,14 @@ function App() {
       </div>
 
       <Display numbers={numbers} error={error} message={message} />
+
+      <hr />
+
+      <p>
+        * Contagem máxima 99999 <br />
+        ** Após atingir o limte máximo o contador é reiniciado <br />
+        *** Registro salvo no navegador.
+      </p>
 
       <Footer />
     </>

@@ -1,27 +1,24 @@
 
 
-const Controls = ({min, setMin, max, setMax, qtd, setQtd, duplicate, setDuplicate, handleReset, handleGenerate}) => {
+const Controls = ({ min, setMin, max, setMax, qtd, setQtd, duplicate, setDuplicate, handleReset, handleGenerate }) => {
     return (
         <div className="controls">
-
             <div className="form-control">
 
-                <label>Intervalo: </label>
-                <div>
-                    <input
-                        type="number"
-                        id='min'
-                        value={min}
-                        onChange={(e) => setMin(e.target.value)}
-                    />
-                    &nbsp;-&nbsp;
-                    <input
-                        type="number"
-                        id='max'
-                        value={max}
-                        onChange={(e) => setMax(e.target.value)}
-                    />
-                </div>
+                <label> Intervalo: </label>
+                &nbsp;<input
+                    type="number"
+                    id='min'
+                    value={min}
+                    onChange={(e) => setMin(Number(e.target.value))}
+                />
+                &nbsp;-&nbsp;<input
+                    type="number"
+                    id='max'
+                    value={max}
+                    onChange={(e) => setMax(Number(e.target.value))}
+                />
+
             </div>
 
             <div className="form-control">
@@ -30,7 +27,8 @@ const Controls = ({min, setMin, max, setMax, qtd, setQtd, duplicate, setDuplicat
                     type="number"
                     id="qtd"
                     value={qtd}
-                    onChange={(e) => setQtd(e.target.value)}
+                    min={1}
+                    onChange={(e) => setQtd(Number(e.target.value))}
                 />
             </div>
 
