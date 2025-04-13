@@ -3,20 +3,22 @@
 const Footer = () => {
     return (
         <footer>
-            <p><img id='logo-author' src="logo.png" alt="" width='40px' />
-                &nbsp;Created by <span className="author">Fernando Alves</span>
+            <p id='author-container'>
+                <div><img id='logo-author' src="logo.png" alt="" height="40" /></div>
+                <div id='author-text-container'>Criado por <strong><em> <span id="author"> Fernando Alves</span></em></strong></div>
+            </p>
 
-            </p>
-            <p>
-                <img id='logo-mail' src="gmail.png" alt="" width='18px' />
-                &nbsp;<a href="mailto:lfalvespe@gmail.com">lfalvespe@gmail.com</a>
-            </p>
-            <p>
-                <img id='logo-github' src="github.png" alt="" width='19px' />
-                &nbsp;<a href="https://github.com/lfalvespe" target='_blank'>Github</a>
-            </p>
-            <p>&copy; 2025</p>
-        </footer>
+            <div id="links">
+                <a href="https://instagram.com/lfalvespe" target="_blank"><img src="instagram.png" alt="" height="25" /></a>
+                <a href="https://www.linkedin.com/in/fernando-alves-6a410323b/" target="_blank"><img src="linkedin-blue.png" alt="" height="25" /></a>
+                <a href="https://github.com/lfalvespe" target="_blank"><img src="github.png" alt="" height="25" /></a>
+                <a href="mailto:lfalvespe@gmail.com"><img src="gmail.png" alt="" height="25" /></a>
+
+            </div>
+
+            <div id='mark'>&copy; 2025</div>
+
+        </footer >
     )
 }
 
