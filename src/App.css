@@ -21,6 +21,11 @@ nav a {
   text-transform: uppercase;
 }
 
+.nav-icon {
+  width: 15px;
+  vertical-align: bottom;
+}
+
 .page-title {
   margin-top: 50px;
   color: rgb(250, 241, 189);
